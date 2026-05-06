@@ -1,70 +1,59 @@
-# FinFlow — Main Repo
+# FinFlow Mobile Platform - Main Repository
 
-Umbrella repository for **FinFlow**: personal finance / subscription tracking. It wires the **frontend** and **backend** as **[Git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)** so you keep three separate GitHub repos while still cloning everything in one tree.
+This is the umbrella repository for the FinFlow mobile product. It manages both the frontend and backend as Git submodules, so the full app can be cloned and developed from one place.
 
-| Piece | GitHub | Role |
-|--------|--------|------|
-| This repo | **[FinFlow — Main Repo](https://github.com/ChamathDilshanC/FinFlow---Main-Repo)** | Wrapper + submodule pointers |
-| Frontend | **[FinFlow — Frontend](https://github.com/ChamathDilshanC/FinFlow---Frontend)** | Client UI |
-| Backend | **[FinFlow — Backend](https://github.com/ChamathDilshanC/FinFlow---Backend)** | FastAPI + PostgreSQL |
+## Product Repositories
 
-Display names use spaces (“FinFlow - …”); GitHub turns them into repo paths like `FinFlow---Frontend` (hyphens). Always copy URLs from the repository **Code** button on GitHub.
+| Product Area | Repository | Purpose |
+|---|---|---|
+| Main | [FinFlow - Main Repo](https://github.com/ChamathDilshanC/FinFlow---Main-Repo) | Root workspace and submodule management |
+| Frontend | [FinFlow - Frontend](https://github.com/ChamathDilshanC/FinFlow---Frontend) | Mobile UI built with React Native + Expo |
+| Backend | [FinFlow - Backend](https://github.com/ChamathDilshanC/FinFlow---Backend) | REST API and business logic |
 
-## Clone with submodules
+## Technology Stack
+
+| Layer | Technologies (Name + Icon) |
+|---|---|
+| Frontend | ![Expo](https://img.shields.io/badge/Expo-000020?logo=expo&logoColor=white) ![React Native](https://img.shields.io/badge/React%20Native-20232A?logo=react&logoColor=61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white) ![NativeWind](https://img.shields.io/badge/NativeWind-06B6D4?logo=tailwindcss&logoColor=white) ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?logo=supabase&logoColor=white) |
+| Backend | ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white) ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-D71F00?logo=sqlalchemy&logoColor=white) ![Alembic](https://img.shields.io/badge/Alembic-4B5563?logo=databricks&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?logo=postgresql&logoColor=white) |
+| Main / DevOps | ![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white) ![Git Submodules](https://img.shields.io/badge/Git%20Submodules-222222?logo=git&logoColor=white) |
+
+## Quick Start
 
 ```bash
 git clone --recurse-submodules https://github.com/ChamathDilshanC/FinFlow---Main-Repo.git
-cd FinFlow---Main-Repo
+cd FinFlow
 ```
 
-If you already cloned without submodules:
+If already cloned without submodules:
 
 ```bash
 git submodule update --init --recursive
 ```
 
-## Pull updates (frontend & backend)
+## Update Submodules
 
 ```bash
 git pull
 git submodule update --remote --merge
 ```
 
-Or enter each submodule and `git pull` as usual.
+## Project Structure
 
-## Local layout
-
-```
+```text
 .
-├── README.md          # this file
-├── .gitmodules        # submodule URLs (managed by Git)
-├── frontend/          # submodule → FinFlow — Frontend
-└── backend/           # submodule → FinFlow — Backend
+|-- README.md
+|-- .gitmodules
+|-- frontend/
+`-- backend/
 ```
 
-## Working on code
+## Development Notes
 
-- **Backend:** see [`backend/README.md`](backend/README.md) — venv, `.env` from `.env.example`, `alembic upgrade head`, `uvicorn`.
-- **Frontend:** see [`frontend/README.md`](frontend/README.md).
+- Frontend setup guide: `frontend/README.md`
+- Backend setup guide: `backend/README.md`
+- Keep secrets such as `.env` files out of version control.
 
-Secrets (`.env`, API keys) stay **uncommitted** inside each submodule per their `.gitignore`.
+## Maintainer
 
-## GitHub CLI reference
-
-Repos were created with [GitHub CLI](https://cli.github.com/) (`gh`), for example:
-
-```bash
-gh repo create "FinFlow - Backend" --private --source=. --remote=origin --push
-```
-
-Use the same pattern for new environments or forks (adjust names/remotes).
-
-## Contributing & attribution
-
-**Maintainer:** [ChamathDilshanC](https://github.com/ChamathDilshanC).  
-
-IDE and automation tools (including **Cursor** / “Cursor Agent”) are **not** listed as project contributors; they are tooling only.
-
-## License
-
-Add a `LICENSE` here or in each submodule when you publish.
+[ChamathDilshanC](https://github.com/ChamathDilshanC)
